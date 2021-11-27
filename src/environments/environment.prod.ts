@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  staticUrl: 'https://bruner.azurewebsites.net/',
-  apiUrl: 'https://bruner.azurewebsites.net/api/',
+  staticUrl: 'https://bruner-api.azurewebsites.net/',
+  apiUrl: 'https://bruner-api.azurewebsites.net/api/',
   defaultPostThumbnail: '..\\assets\\img\\posts\\default-thumbnail.jpg'
 };

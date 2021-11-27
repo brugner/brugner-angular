@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../models/posts/post.model';
 import { AuthService } from '../services/auth.service';
@@ -22,8 +22,15 @@ export class BlogComponent implements OnInit {
     public authService: AuthService,
     private route: ActivatedRoute,
     private titleService: Title,
+    private meta: Meta,
     private location: Location
-  ) { 
+  ) {
+    this.meta.addTags([
+      { name: 'description', content: 'My personal blog with some posts about tech and random thoughts.' },
+      { name: 'author', content: 'Nery Brugnoni' },
+      { name: 'keywords', content: 'Blog, Resume, Personal' }
+    ]);
+
     this.titleService.setTitle('Bruner | Blog')
   }
 

@@ -1,0 +1,45 @@
+<section class="section">
+    <div class="section-content">
+        <div class="container">
+            <div class="section-header animate__animated animate__fadeInLeft">
+                <div class="section-header-content">
+                    <div class="text-justify animate__animated animate__fadeInLeft">
+                        <h1>Posts
+                            <svg *ngIf="isLoading" class="loader" viewBox="0 0 28 28">
+                                <circle cx="14" cy="14" r="12" stroke-width="2"></circle>
+                            </svg>
+                        </h1>
+                        <p>Every single post is listed here, even those which are yet to be published.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Title</th>
+                                <th>Created at</th>
+                                <th>Updated at</th>
+                                <th>Tags</th>
+                                <th>Is draft?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let post of posts">
+                                <td><a routerLink="/blog/post/{{post.id}}" title="Edit post">{{ post.id }}</a></td>
+                                <td><a routerLink="/blog/post/{{post.slug}}" title="View post">{{ post.title }}</a></td>
+                                <td>{{ post.createdAt | date:"yyyy/MM/dd" }}</td>
+                                <td>{{ post.updatedAt | date:"yyyy/MM/dd" }}</td>
+                                <td><span *ngFor="let tag of post.tags" class="mr-1"><a routerLink="/blog/tag/{{tag}}">#{{tag}}</a></span></td>
+                                <td class="text-center"><i [ngClass]="(post.isDraft) ? 'fa fa-check-circle' : 'fa fa-times-circle'"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

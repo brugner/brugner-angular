@@ -1,0 +1,107 @@
+<section class="section">
+  <div class="section-content">
+    <div class="container">
+      <div class="section-header animate__animated animate__fadeInLeft">
+        <div class="section-header-content">
+          <div class="text-justify animate__animated animate__fadeInLeft">
+            <h1>{{(isNew) ? 'New post' : 'Edit post'}}
+              <svg *ngIf="isLoading" class="loader" viewBox="0 0 28 28">
+                <circle cx="14" cy="14" r="12" stroke-width="2"></circle>
+              </svg>
+            </h1>
+            <p>Every single field and hit update.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 offset-md-1 col-sm-12">
+          <form [formGroup]="postForm" (keydown.enter)="$event.preventDefault()" (keydown.shift.enter)="$event.preventDefault()">
+
+            <input type="hidden" formControlName="id">
+
+            <div class="form-group text-center mb-5">
+              <img [src]="postThumbnailUrl" alt="Post thumbnail" width="300" height="300" class="mb-1" [ngClass]="(postThumbnailUrl.length > 0) ? 'd-initial' : 'd-none'">
+              <br>
+              <label for="imgInput">Thumbnail image</label>
+              <br>
+              <input name="imgInput" type="file" accept="image/*" placeholder="Choose an image" (change)="onImageChanged($event)" value="Choose an image">
+              <button (click)="removeImage()">Remove image</button>
+
+              <div class="alert alert-info mt-2" role="alert">
+                <strong>Heads up!</strong> You can select an image or leave it blank to show the default image.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" class="form-control" formControlName="title" placeholder="Title" maxlength="150" required [ngClass]="{ 'is-invalid': isSubmitted && title?.errors }">
+              <span *ngIf="title?.invalid && title?.errors?.required && (title?.dirty || title?.touched)" class="text-danger">
+                A title is required.
+              </span>
+              <span *ngIf="title?.invalid && title?.errors?.minlength && (title?.dirty || title?.touched)" class="text-danger">
+                Enter at least 10 characters.
+              </span>
+              <span *ngIf="title?.invalid && title?.errors?.maxlength && (title?.dirty || title?.touched)" class="text-danger">
+                Max length must be 150.
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="summary">Summary</label>
+              <input type="text" class="form-control" formControlName="summary" placeholder="The post summary" maxlength="200" required [ngClass]="{ 'is-invalid': isSubmitted && summary?.errors }">
+              <span *ngIf="summary?.invalid && summary?.errors?.required && (summary?.dirty || summary?.touched)" class="text-danger">
+                A summary is required.
+              </span>
+              <span *ngIf="summary?.invalid && summary?.errors?.minlength && (summary?.dirty || summary?.touched)" class="text-danger">
+                Enter at least 10 characters.
+              </span>
+              <span *ngIf="summary?.invalid && summary?.errors?.maxlength && (summary?.dirty || summary?.touched)" class="text-danger">
+                Max length must be 200.
+              </span>
+            </div>
+
+            <div class="form-group">
+              <editor apiKey="bigbujgb61fxmvlotqh3p6v39qhsj084matu83gk9hv5ku1x" formControlName="content" [init]="editorConfig"></editor>
+              <span *ngIf="content?.invalid && content?.errors?.required && (content?.dirty || content?.touched)" class="text-danger">
+                Content is required and up to 1.000.000 characters long.
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="tag">Tags</label>
+              <div class="ng-autocomplete">
+                <ng-autocomplete formControlName="tag" [data]="allTags" (selected)='selectEvent($event)' (inputChanged)='onChangeSearch($event)' [itemTemplate]="itemTemplate" (keydown.enter)="onKeyDownEvent($event)"
+                  placeholder="Add a tag..">
+                </ng-autocomplete>
+
+                <ng-template #itemTemplate let-item>
+                  <a [innerHTML]="item"></a>
+                </ng-template>
+              </div>
+
+              <div class="alert alert-info mt-2" role="alert">
+                <strong>Heads up!</strong> Start to write and select a tag or hit enter to create a new one. Then you can click one to remove it.
+              </div>
+
+              <ul class="mt-4">
+                <li *ngFor="let tag of selectedTags"><a [routerLink]="" (click)="removeTag(tag)">#{{tag}}</a></li>
+              </ul>
+            </div>
+
+            <div class="form-group form-check">
+              <input type="checkbox" formControlName="isDraft">
+              <label class="form-check-label" for="isDraft">Is draft?</label>
+            </div>
+
+            <div class="form-group buttons-row mt-5">
+              <button type="button" *ngIf="!isNew" (click)="deletePost()" class="btn btn-danger mr-2"><i class="fa fa-trash"></i>Delete</button>
+              <a class="btn btn-default float-right" routerLink='/blog'>Cancel</a>
+              <button class="btn btn-primary float-right" type="button" (click)="submitForm()" [disabled]="!postForm.valid || isSubmitted || selectedTags.length === 0"><i class="fa fa-save"></i> {{(isNew) ? 'Create' : 'Update'}}</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

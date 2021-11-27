@@ -1,0 +1,46 @@
+<section class="dark bg-dark">
+  <article class="post single">
+    <div class="post-content section-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 push-lg-1">
+            <div class="post-header">
+              <p class="date text-muted mb-0"><i class="ti-calendar"></i> Published {{post.createdAt | timeAgo}}</p>
+              <p class="date text-muted mb-0"><i class="ti-time"></i> {{post.content | readingTime}}</p>
+
+              <h1 class="post-title">{{post.title}}</h1>
+
+              <ul class="post-meta">
+                <li *ngFor="let tag of post.tags"><a routerLink="/blog/tag/{{tag}}" class="mr-2">#{{tag}} </a></li>
+              </ul>
+            </div>
+
+            <div [innerHTML]="post.content | rawHtml"></div>
+
+            <div *ngIf="isAuthenticated" class="mt-5">
+              <div class="card">
+                <div class="card-header">
+                  Editor's Zone
+                </div>
+                <div class="card-block">
+                  <p class="card-text">You can edit the post as many times as you want but, there's no turning back from deleting a post. Be careful.</p>
+                  <a routerLink="/posts/{{post.id}}" class="btn btn-primary mr-3"><i class="fa fa-pencil"></i>Edit</a>
+                  <button (click)="deletePost()" class="btn btn-danger"><i class="fa fa-trash"></i>Delete</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="post-comments post-module">
+              <h4 class="text-center mb-5">Comments</h4>
+              <div class="content">
+                <disqus [identifier]="pageId"></disqus>
+              </div>
+            </div>
+
+            <a routerLink="/blog" class="btn btn-primary btn-block mt-5"><i class="fa fa-arrow-left"></i> Back to blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

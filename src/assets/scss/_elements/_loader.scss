@@ -1,0 +1,89 @@
+/* 6.11 Loader
+----------------------------------------------------------*/
+
+/* Loader */
+
+.loader {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  fill: transparent;
+  stroke: $color-primary;
+  stroke-linecap: round;
+  vertical-align: middle;
+  animation: loaderAnimation 1.5s ease-in-out infinite;
+  transform: rotate(-20deg);
+
+  >circle {
+    stroke-dasharray: 10, 8.5;
+    animation: loaderCircleAnimation 1.5s ease-in-out infinite;
+    transform-origin: center, center;
+  }
+
+  &.loader-white {
+    stroke: #fff;
+  }
+
+  &.loader-xl {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@keyframes loaderCircleAnimation {
+  40% {
+    stroke-dasharray: 10, 8.5;
+    stroke-dashoffset: 0;
+    transform: scale(1);
+  }
+
+  60% {
+    stroke-dasharray: 3, 15.5;
+    stroke-dashoffset: -3;
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  80% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  100% {
+    stroke-dasharray: 10, 8.5;
+    stroke-dashoffset: 0;
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes loaderAnimation {
+  0% {
+    transform: rotate(-20deg);
+  }
+
+  45% {
+    transform: rotate(340deg);
+
+  }
+
+  100% {
+    transform: rotate(340deg);
+  }
+}
+
+/* Page Loader */
+
+#page-loader {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1500;
+}
+
+body.navigation-horizontal {
+  #page-loader {
+    top: auto;
+    bottom: 20px;
+  }
+}

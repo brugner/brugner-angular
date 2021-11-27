@@ -1,0 +1,31 @@
+<nav id="navigation" class="navigation-horizontal dark">
+
+  <a routerLink="/" class="photo">
+    <img src="assets/img/avatars/avatar01.jpg" alt="" class="animated fadeIn infinite">
+  </a>
+
+  <ul class="nav nav-primary-horizontal" [ngClass]="{'show':isMenuOpen}">
+    <li class="nav-item">
+      <a routerLink="/about-me" routerLinkActive="active" class="nav-link">
+        <span class="icon icon-sm mr-2"><i class="fa fa-user"></i></span> About me
+      </a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="/blog" routerLinkActive="active" class="nav-link">
+        <span class="icon icon-sm mr-2"><i class="fa fa-pencil"></i></span> Blog
+      </a>
+    </li>
+    <li *ngIf="isAuthenticated" class="nav-item">
+      <a routerLink="/change-password" routerLinkActive="active" class="nav-link">
+        <span class="icon icon-sm mr-2"><i class="fa fa-lock"></i></span> Change Password
+      </a>
+    </li>
+    <li *ngIf="isAuthenticated" class="nav-item">
+      <a href="#" (click)="logout()" class="nav-link">
+        <span class="icon icon-sm mr-2"><i class="fa fa-sign-out"></i></span> Log Out
+      </a>
+    </li>
+  </ul>
+
+  <a #navigationToggle class="nav-toggle" [ngClass]="{'open':isMenuOpen}" (click)="onNavigationClick()"><span></span><span></span><span></span><span></span></a>
+</nav>

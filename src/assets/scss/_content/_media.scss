@@ -1,0 +1,132 @@
+/* 4.3 Media
+----------------------------------------------------------*/
+
+/* Image Box */
+.image-box {
+  position: relative;
+  margin-bottom: 0;
+
+  .image {
+    position: relative;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    background-color: $color-light;
+    @include transition-secondary;
+
+    img {
+      border-radius: 0.25rem;
+      @include transition-primary;
+      width: 100%;
+
+      +img:last-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .btn-play {
+      position: absolute;
+      top: calc(50% - 40px);
+      left: calc(50% - 40px);
+    }
+  }
+
+  .content {
+    padding: 1.5rem;
+
+    a {
+      @include link-inherit;
+    }
+
+    .title {
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+
+    .caption {
+      font-size: 0.85rem;
+    }
+  }
+
+  &.inner-title {
+    color: #fff;
+
+    .text-muted {
+      color: $color-muted-light !important;
+    }
+
+    .image {
+      &:after {
+        @include fill-parent;
+        background-image: linear-gradient(to top, rgba(#000, 0.5), rgba(#000, 0));
+        pointer-events: none;
+      }
+    }
+
+    .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      a:hover,
+      a:focus {
+        color: inherit;
+        opacity: 0.5;
+      }
+    }
+
+    &.hover {
+      .image:after {
+        @include transition-secondary;
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .content {
+        @include transition-secondary;
+        transform: translateY(10px);
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &:hover {
+        .image:after {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .content {
+          transform: translateY(0);
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:focus {
+    .image {
+      box-shadow: 0 0 30px 0 rgba(#000, 0.1);
+
+      img+img {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.row.no-gutters .image-box {
+
+  .image,
+  .image img {
+    border-radius: 0;
+  }
+}

@@ -1,14 +1,14 @@
-import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PostForUpdate } from '../models/posts/post-for-update.model';
-import { PostForCreation } from '../models/posts/post-for-creation.model';
+import { Inject, Injectable } from '@angular/core';
 import {
   SESSION_STORAGE,
   StorageService,
-  StorageTranscoders,
+  StorageTranscoders
 } from 'ngx-webstorage-service';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { PostForCreation } from '../models/posts/post-for-creation.model';
+import { PostForUpdate } from '../models/posts/post-for-update.model';
 import { Post } from '../models/posts/post.model';
 
 @Injectable()
@@ -18,7 +18,7 @@ export class PostsService {
   constructor(
     @Inject(SESSION_STORAGE) private storageService: StorageService,
     private httpClient: HttpClient
-  ) {}
+  ) { }
 
   async getAll(tag?: string | null): Promise<Post[]> {
     if (this.storageService.has(this.cacheKey)) {
@@ -43,9 +43,9 @@ export class PostsService {
         map((posts: Post[]) => {
           posts.forEach(
             (x) =>
-              (x.thumbnail = x.thumbnail
-                ? environment.staticUrl + '\\' + x.thumbnail
-                : '..\\assets\\img\\posts\\default-thumbnail.jpg')
+            (x.thumbnail = x.thumbnail
+              ? environment.staticUrl + '\\' + x.thumbnail
+              : '..\\assets\\img\\posts\\default-thumbnail.jpg')
           );
           this.storageService.set(this.cacheKey, posts);
 
@@ -97,9 +97,9 @@ export class PostsService {
         map((posts: Post[]) => {
           posts.forEach(
             (x) =>
-              (x.thumbnail = x.thumbnail
-                ? environment.staticUrl + '\\' + x.thumbnail
-                : '..\\assets\\img\\posts\\default-thumbnail.jpg')
+            (x.thumbnail = x.thumbnail
+              ? environment.staticUrl + '\\' + x.thumbnail
+              : '..\\assets\\img\\posts\\default-thumbnail.jpg')
           );
           this.storageService.set(this.cacheKey, posts);
 

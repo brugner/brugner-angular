@@ -40,9 +40,9 @@ export class BlogComponent implements OnInit {
       const posts = await this.postsService.getAll(this.selectedTag);
       this.posts = posts;
       this.isLoading = false;
-    });
 
-    this.allTags = await this.postsService.getAllTags();
+      this.allTags = await this.postsService.getAllTags();
+    });
   }
 
   public get isAuthenticated(): boolean {

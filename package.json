@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~12.2.0",
     "@angular/platform-browser-dynamic": "~12.2.0",
     "@angular/router": "~12.2.0",
+    "@microsoft/applicationinsights-web": "^2.7.2",
     "@tinymce/tinymce-angular": "^4.0.0",
     "angular-ng-autocomplete": "^2.0.5",
     "animate.css": "^4.1.1",

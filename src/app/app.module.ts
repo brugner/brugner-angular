@@ -58,7 +58,7 @@ import { ViewPostComponent } from './view-post/view-post.component';
     ReactiveFormsModule,
     ToastrModule.forRoot({ closeButton: true, positionClass: 'toast-bottom-right' }),
     AutocompleteLibModule,
-    DisqusModule.forRoot('brunerx')
+    DisqusModule.forRoot('brugner')
   ],
   providers: [
     AuthService,

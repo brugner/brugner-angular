@@ -1,6 +1,7 @@
 <section id="intro" class="section h-md dark dark bg-dark">
   <div class="bg-image-container">
-    <img src="assets/img/covers/blog.jpg" alt="The background image: a black cat standing in a roof in a futuristic city" class="height-100" />
+    <img src="assets/img/covers/blog.jpg"
+      alt="The background image: a black cat standing in a roof in a futuristic city" class="height-100" />
   </div>
 
   <div class="section-content pos-v-center">
@@ -8,7 +9,7 @@
       <div class="row text-center">
         <div class="col-md-6 push-md-3">
           <h1>
-            <span><strong>Bruner</strong>'s blog</span>
+            <span><strong>Brugner</strong>'s blog</span>
           </h1>
         </div>
       </div>
@@ -24,7 +25,9 @@
           <div class="text-justify animate__animated animate__fadeInLeft">
             <h1>Abandon hope all ye who enter here</h1>
             <p>
-              Well maybe that was too much but still, I don't promise you anything. I write about whatever comes to my mind and this space to me is like a sandbox where I develop and test some concepts I have lying around here and there.
+              Well maybe that was too much but still, I don't promise you anything. I write about whatever comes to my
+              mind and this space to me is like a sandbox where I develop and test some concepts I have lying around
+              here and there.
             </p>
             <span *ngIf="!isLoading">What would you like to see?</span>
           </div>
@@ -32,10 +35,12 @@
           <div *ngIf="!isLoading">
             <ul class="nav nav-pills">
               <li class="nav-item">
-                <button class="btn btn-link pointer" [ngClass]="{ 'text-primary': !selectedTag }" (click)="getPosts(null)">All</button>
+                <button class="btn btn-link pointer" [ngClass]="{ 'text-primary': !selectedTag }"
+                  (click)="getPosts(null)">All</button>
               </li>
               <li *ngFor="let tag of allTags" class="nav-item">
-                <button class="btn btn-link pointer" [ngClass]="{ 'text-primary': selectedTag === tag }" (click)="getPosts(tag)">#{{ tag }}</button>
+                <button class="btn btn-link pointer" [ngClass]="{ 'text-primary': selectedTag === tag }"
+                  (click)="getPosts(tag)">#{{ tag }}</button>
               </li>
             </ul>
 
@@ -47,7 +52,8 @@
                     You can add as many new posts as you want. Let's go!
                   </p>
                   <a routerLink="/posts" class="btn btn-primary mr-3 mb-1"><i class="fa fa-book"></i>All posts</a>
-                  <a routerLink="/posts/new" class="btn btn-outline-primary mb-1"><i class="fa fa-pencil-square-o"></i>Write a new post</a>
+                  <a routerLink="/posts/new" class="btn btn-outline-primary mb-1"><i
+                      class="fa fa-pencil-square-o"></i>Write a new post</a>
                 </div>
               </div>
             </div>

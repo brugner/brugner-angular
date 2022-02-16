@@ -41,7 +41,7 @@ export class ViewPostComponent implements OnInit {
   async deletePost() {
     if (confirm('Careful, deletion is permanent. Are you sure you want to delete this post?')) {
       await this.postsService.delete(this.post.id);
-      this.toastrService.success('Post deleted', 'Bruner');
+      this.toastrService.success('Post deleted', 'Brugner');
       this.router.navigateByUrl('/blog');
     }
   }

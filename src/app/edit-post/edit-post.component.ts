@@ -129,7 +129,7 @@ export class EditPostComponent implements OnInit {
   async deletePost() {
     if (confirm('Careful, deletion is permanent. Are you sure you want to delete this post?')) {
       await this.postsService.delete(this.id?.value);
-      this.toastrService.success('Post deleted', 'Bruner');
+      this.toastrService.success('Post deleted', 'Brugner');
       this.router.navigateByUrl('/posts');
     }
   }
@@ -139,7 +139,7 @@ export class EditPostComponent implements OnInit {
     const createdPost = await this.postsService.create(postForCreation);
     this.isSubmitted = false;
     this.cleanPostForm();
-    this.toastrService.success('Post created', 'Bruner');
+    this.toastrService.success('Post created', 'Brugner');
     this.router.navigate(['blog', 'post', createdPost.slug]);
   }
 
@@ -148,7 +148,7 @@ export class EditPostComponent implements OnInit {
     const updatedPost = await this.postsService.update(this.id?.value, postForUpdate);
     this.isSubmitted = false;
     this.cleanPostForm();
-    this.toastrService.success('Post updated', 'Bruner');
+    this.toastrService.success('Post updated', 'Brugner');
     this.router.navigate(['blog', 'post', updatedPost.slug]);
   }
 

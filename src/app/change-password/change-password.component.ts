@@ -67,7 +67,7 @@ export class ChangePasswordComponent {
     this.isLoading = false;
 
     if (result) {
-      this.toastrService.success('Password changed', 'Bruner');
+      this.toastrService.success('Password changed', 'Brugner');
       this.changePwdForm.reset();
       this.router.navigateByUrl('/');
     } else {

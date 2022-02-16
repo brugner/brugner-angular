@@ -22,7 +22,7 @@ export class AboutMeComponent implements OnInit {
       { name: 'keywords', content: 'Blog, Resume, Personal' }
     ]);
 
-    this.titleService.setTitle('Bruner | About me');
+    this.titleService.setTitle('Brugner | About me');
   }
 
   async ngOnInit(): Promise<void> {

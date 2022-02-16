@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
 
     try {
       await this.authService.login(this.email?.value, this.password?.value);
-      this.toastrService.success('Welcome!', 'Bruner');
+      this.toastrService.success('Welcome!', 'Brugner');
       this.router.navigate([this.returnUrl]);
     } catch (e: any) {
       this.error = e.error.title;

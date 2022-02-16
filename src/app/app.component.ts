@@ -7,7 +7,7 @@ import { MonitoringService } from './services/monitoring.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'bruner';
+  title = 'brugner';
 
   constructor(private monitoringService: MonitoringService) {
 

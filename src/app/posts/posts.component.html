@@ -29,12 +29,15 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let post of posts">
-                                <td><a routerLink="/blog/post/{{post.id}}" title="Edit post">{{ post.id }}</a></td>
+                                <td><a routerLink="/posts/{{post.id}}" title="Edit post">{{ post.id }}</a></td>
                                 <td><a routerLink="/blog/post/{{post.slug}}" title="View post">{{ post.title }}</a></td>
                                 <td>{{ post.createdAt | date:"yyyy/MM/dd" }}</td>
                                 <td>{{ post.updatedAt | date:"yyyy/MM/dd" }}</td>
-                                <td><span *ngFor="let tag of post.tags" class="mr-1"><a routerLink="/blog/tag/{{tag}}">#{{tag}}</a></span></td>
-                                <td class="text-center"><i [ngClass]="(post.isDraft) ? 'fa fa-check-circle' : 'fa fa-times-circle'"></i></td>
+                                <td><span *ngFor="let tag of post.tags" class="mr-1"><a
+                                            routerLink="/blog/tag/{{tag}}">#{{tag}}</a></span></td>
+                                <td class="text-center"><i
+                                        [ngClass]="(post.isDraft) ? 'fa fa-check-circle' : 'fa fa-times-circle'"></i>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

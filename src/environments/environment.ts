@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  staticUrl: 'https://localhost:5001/',
-  apiUrl: 'https://localhost:5001/api/',
+  staticUrl: 'https://localhost:7115/',
+  apiUrl: 'https://localhost:7115/api/',
   defaultPostThumbnail: '..\\assets\\img\\posts\\default-thumbnail.jpg',
   appInsights: {
     instrumentationKey: 'c53fd695-c2da-4328-8e4f-0796a3e59cbb'

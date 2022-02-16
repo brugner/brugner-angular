@@ -31,7 +31,7 @@ export class BlogComponent implements OnInit {
       { name: 'keywords', content: 'Blog, Resume, Personal' }
     ]);
 
-    this.titleService.setTitle('Bruner | Blog')
+    this.titleService.setTitle('Brugner | Blog')
   }
 
   async ngOnInit(): Promise<void> {

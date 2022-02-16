@@ -23,7 +23,6 @@
     "@tinymce/tinymce-angular": "^4.0.0",
     "angular-ng-autocomplete": "^2.0.5",
     "animate.css": "^4.1.1",
-    "flag-icon-css": "^4.1.5",
     "font-awesome": "^4.7.0",
     "include-media": "^1.4.10",
     "ngx-disqus": "^2.4.3",

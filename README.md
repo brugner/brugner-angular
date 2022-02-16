@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Azure deployment
+Currently it's being done manually because of an issue with Github Actions and Node. Follow the steps:
+1. Run ng build --configuration production
+2. Zip the content of the dist/brugner folder
+3. Go to the Kudu console of the App Service
+4. Delete everything
+5. Upload the zip, unzip it and delete it
+6. Done!

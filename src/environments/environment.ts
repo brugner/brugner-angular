@@ -8,7 +8,7 @@ export const environment = {
   apiUrl: 'https://localhost:7115/api/',
   defaultPostThumbnail: '..\\assets\\img\\posts\\default-thumbnail.jpg',
   appInsights: {
-    instrumentationKey: 'c53fd695-c2da-4328-8e4f-0796a3e59cbb'
+    instrumentationKey: '36186d98-4fd9-4427-9755-6a373c4ae070'
   }
 };
 
